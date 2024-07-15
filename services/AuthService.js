@@ -11,16 +11,16 @@ const login = async (email, password) => {
         return {
             code: 401,
             message: 'Unauthorized'
-        }
+        } 
     }
 
-    const expiration = (new Date()).setHours((new Date()).getHours() + 1);
+    const expiration = (new Date()).setHours((new Date()).getHours() + 1)
 
     const token = Buffer.from(JSON.stringify({
         name: response.name,
         email: response.email,
         id: response.id,
-        roles: ['user'],
+        roles: ['admin'],
         expiration: expiration,
     })).toString('base64');
 
